@@ -1,0 +1,17 @@
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\bin\Debug\netcoreapp3.1\Movies.Application.dll
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\bin\Debug\netcoreapp3.1\Movies.Domain.dll
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\obj\Debug\netcoreapp3.1\Movies.Persistency.csprojAssemblyReference.cache
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\obj\Debug\netcoreapp3.1\Movies.Persistency.AssemblyInfoInputs.cache
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\obj\Debug\netcoreapp3.1\Movies.Persistency.AssemblyInfo.cs
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\bin\Debug\netcoreapp3.1\Movies.Persistency.deps.json
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\bin\Debug\netcoreapp3.1\Movies.Persistency.runtimeconfig.json
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\bin\Debug\netcoreapp3.1\Movies.Persistency.runtimeconfig.dev.json
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\bin\Debug\netcoreapp3.1\Movies.Persistency.dll
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\bin\Debug\netcoreapp3.1\Movies.Persistency.pdb
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\bin\Debug\netcoreapp3.1\Movies.Application.pdb
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\bin\Debug\netcoreapp3.1\Movies.Domain.pdb
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\obj\Debug\netcoreapp3.1\Movies.Persistency.csproj.CoreCompileInputs.cache
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\obj\Debug\netcoreapp3.1\Movies.Persistency.csproj.CopyComplete
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\obj\Debug\netcoreapp3.1\Movies.Persistency.dll
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\obj\Debug\netcoreapp3.1\Movies.Persistency.pdb
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Persistency\obj\Debug\netcoreapp3.1\Movies.Persistency.genruntimeconfig.cache

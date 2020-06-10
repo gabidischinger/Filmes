@@ -1,0 +1,9 @@
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\JsonWebToken\obj\Debug\netcoreapp3.1\JsonWebToken.csprojAssemblyReference.cache
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\JsonWebToken\obj\Debug\netcoreapp3.1\JsonWebToken.AssemblyInfoInputs.cache
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\JsonWebToken\obj\Debug\netcoreapp3.1\JsonWebToken.AssemblyInfo.cs
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\JsonWebToken\obj\Debug\netcoreapp3.1\JsonWebToken.csproj.CoreCompileInputs.cache
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\JsonWebToken\bin\Debug\netcoreapp3.1\JsonWebToken.deps.json
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\JsonWebToken\bin\Debug\netcoreapp3.1\JsonWebToken.dll
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\JsonWebToken\bin\Debug\netcoreapp3.1\JsonWebToken.pdb
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\JsonWebToken\obj\Debug\netcoreapp3.1\JsonWebToken.dll
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\JsonWebToken\obj\Debug\netcoreapp3.1\JsonWebToken.pdb

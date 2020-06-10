@@ -1,0 +1,12 @@
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Application\bin\Debug\netcoreapp3.1\Movies.Application.deps.json
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Application\bin\Debug\netcoreapp3.1\Movies.Application.dll
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Application\obj\Debug\netcoreapp3.1\Movies.Application.csprojAssemblyReference.cache
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Application\obj\Debug\netcoreapp3.1\Movies.Application.AssemblyInfoInputs.cache
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Application\obj\Debug\netcoreapp3.1\Movies.Application.AssemblyInfo.cs
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Application\bin\Debug\netcoreapp3.1\Movies.Application.pdb
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Application\bin\Debug\netcoreapp3.1\Movies.Domain.dll
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Application\bin\Debug\netcoreapp3.1\Movies.Domain.pdb
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Application\obj\Debug\netcoreapp3.1\Movies.Application.csproj.CoreCompileInputs.cache
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Application\obj\Debug\netcoreapp3.1\Movies.Application.csproj.CopyComplete
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Application\obj\Debug\netcoreapp3.1\Movies.Application.dll
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Application\obj\Debug\netcoreapp3.1\Movies.Application.pdb
