@@ -45,7 +45,7 @@ namespace JsonWebToken
             else
             {
                 context.HttpContext.Response.StatusCode = 403;
-                await context.HttpContext.Response.WriteAsync("Seu usuário não tem permissão para usar esse recurso");
+                await context.HttpContext.Response.WriteAsync("Seu usuário não tem permissão para fazer essa alteração");
                 logger.Warning("Acesso Proibido do usuário {userID} ao recurso {@routeData} | Model : {@model}",
                     userID, routeData, model);
             }
