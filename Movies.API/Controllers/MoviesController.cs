@@ -24,7 +24,7 @@ namespace Movies.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var userID = (int)this.RouteData.Values["UserID"];
+            var userID = int.Parse(((JWTPayload)this.HttpContext.Items["JWTPayload"]).uid);
             var movies = await handler.Listar(userID);
             return new JsonResult(movies.Select(m => new { m.ID, m.Title }));
         }
@@ -38,7 +38,7 @@ namespace Movies.API.Controllers
             {
                 movie.ID,
                 movie.Title,
-                movie.AverageRating,
+                //movie.AverageRating,
                 TotalReviews = movie.Reviews.Count(),
                 AddedOn = movie.AddedOn.ToShortDateString(),
                 LastModifiedOn = movie.LastModifiedOn.ToShortDateString()

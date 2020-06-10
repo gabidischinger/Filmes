@@ -1,4 +1,5 @@
 ﻿using JsonWebToken;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
@@ -16,8 +17,10 @@ namespace Movies.Infrastructure
             {
                 var payload = (JWTPayload)context.HttpContext.Items["JWTPayload"];
                 var uid = int.Parse(payload.uid);
+                var role = payload.role;
                 var controller = (ControllerBase)context.Controller;
                 controller.RouteData.Values["UserID"] = uid;
+                controller.RouteData.Values["Role"] = role;
                 await next.Invoke();
             }
             else
