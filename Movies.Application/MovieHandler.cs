@@ -22,7 +22,7 @@ namespace Movies.Application
             {
                 toAlter.Title = movie.Title ?? toAlter.Title;
                 toAlter.Description = movie.Description ?? toAlter.Description;
-                toAlter.Year = movie.Year;
+                toAlter.Year = movie.Year ?? toAlter.Year;
                 toAlter.Genre = movie.Genre ?? toAlter.Genre;
                 movie.LastModifiedOn = DateTime.Now;
                 return await db.SaveChangesAsync();

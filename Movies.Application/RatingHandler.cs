@@ -21,7 +21,7 @@ namespace Movies.Application
             var toAlter = await db.Ratings.SingleOrDefaultAsync(r => r.ID == id);
             if (toAlter != null && toAlter.UserID == userID)
             {
-                toAlter.MovieRating = rating.MovieRating;
+                toAlter.MovieRating = rating.MovieRating ?? toAlter.MovieRating;
                 toAlter.LastModifiedOn = DateTime.Now;
                 return await db.SaveChangesAsync();
             }

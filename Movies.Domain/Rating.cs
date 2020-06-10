@@ -11,7 +11,7 @@ namespace Movies.Domain
         public virtual Movie Movie { get; set; }
         public int UserID { get; set; }
         public virtual User User { get; set; }
-        public float MovieRating { get; set; }
+        public float? MovieRating { get; set; }
         public DateTime AddedOn { get; set; }
         public DateTime LastModifiedOn { get; set; }
     }
