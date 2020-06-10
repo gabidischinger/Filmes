@@ -38,7 +38,10 @@ namespace Movies.API.Controllers
             {
                 movie.ID,
                 movie.Title,
-                //movie.AverageRating,
+                movie.Description,
+                movie.Year,
+                movie.Genre,
+                movie.AverageRating,
                 TotalRatings = movie.Ratings.Count(),
                 TotalReviews = movie.Reviews.Count(),
                 AddedOn = movie.AddedOn.ToShortDateString(),
@@ -81,12 +84,18 @@ namespace Movies.API.Controllers
             await handler.Alterar(id, movie, userID);
             this.HttpContext.Response.StatusCode = 200;
             var alteredMovie = await handler.ObterUm(id, userID);
-            return new JsonResult(new { 
-                alteredMovie.ID, 
-                alteredMovie.Title, 
-                alteredMovie.Description, 
-                alteredMovie.Year, 
-                LastModifiedOn = alteredMovie.LastModifiedOn.ToShortDateString() });
+            return new JsonResult(new {
+                alteredMovie.ID,
+                alteredMovie.Title,
+                alteredMovie.Description,
+                alteredMovie.Year,
+                alteredMovie.Genre,
+                alteredMovie.AverageRating,
+                TotalRatings = alteredMovie.Ratings.Count(),
+                TotalReviews = alteredMovie.Reviews.Count(),
+                AddedOn = alteredMovie.AddedOn.ToShortDateString(),
+                LastModifiedOn = alteredMovie.LastModifiedOn.ToShortDateString()
+            });
         }
 
         [HttpDelete("{id}")]

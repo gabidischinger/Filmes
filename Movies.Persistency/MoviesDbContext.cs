@@ -60,6 +60,8 @@ namespace Movies.Persistency
                 .WithOne(r => r.User)
                 .HasForeignKey(r => r.UserID);
 
+            modelBuilder.Entity<Movie>().Ignore(m => m.AverageRating);
+
             modelBuilder.Entity<User>().HasData(new User[] {
                 new User(){ ID = 1, Name = "Admin1", Role = "admin", ApiKey = Guid.NewGuid().ToString(), ApiSecret = Guid.NewGuid().ToString()},
                 new User(){ ID = 2, Name = "Admin2", Role = "admin", ApiKey = Guid.NewGuid().ToString(), ApiSecret = Guid.NewGuid().ToString()},

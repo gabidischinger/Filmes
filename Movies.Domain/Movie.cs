@@ -12,15 +12,13 @@ namespace Movies.Domain
         public int? Year { get; set; }
         public string Genre { get; set; }
         public int UserID { get; set; }
-        //public float? AverageRating
-        //{
-        //    get {
-        //        if (AverageRating != null)
-        //            return this.Ratings.Average(r => r.MovieRating);
-        //        else
-        //            return this.Ratings.Count();
-        //    }
-        //}
+        public float? AverageRating
+        {
+            get
+            {
+                return this.Ratings?.Average(r => r.MovieRating);
+            }
+        }
         public virtual User User { get; set; }
         public DateTime AddedOn { get; set; }
         public DateTime LastModifiedOn { get; set; }

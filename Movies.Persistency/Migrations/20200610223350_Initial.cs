@@ -31,7 +31,7 @@ namespace Movies.Persistency.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    Year = table.Column<int>(nullable: false),
+                    Year = table.Column<int>(nullable: true),
                     Genre = table.Column<string>(nullable: true),
                     UserID = table.Column<int>(nullable: false),
                     AddedOn = table.Column<DateTime>(nullable: false),
@@ -56,7 +56,7 @@ namespace Movies.Persistency.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     MovieID = table.Column<int>(nullable: false),
                     UserID = table.Column<int>(nullable: false),
-                    MovieRating = table.Column<float>(nullable: false),
+                    MovieRating = table.Column<float>(nullable: true),
                     AddedOn = table.Column<DateTime>(nullable: false),
                     LastModifiedOn = table.Column<DateTime>(nullable: false)
                 },
@@ -110,22 +110,22 @@ namespace Movies.Persistency.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "ID", "ApiKey", "ApiSecret", "Name", "Role" },
-                values: new object[] { 1, "bb072e73-3671-4636-8b3c-9db58ff7a15d", "25bf7575-a008-4805-8670-74a836f892e7", "Admin1", "admin" });
+                values: new object[] { 1, "e2216fc2-a605-4994-a25e-982048f97969", "48279e3a-05e9-42d3-9eb1-211f2c968905", "Admin1", "admin" });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "ID", "ApiKey", "ApiSecret", "Name", "Role" },
-                values: new object[] { 2, "622e7110-e756-4e04-ae2d-2892b3c22f66", "95a69993-1fa3-4806-93c3-b8cbf74c1110", "Admin2", "admin" });
+                values: new object[] { 2, "ce300cae-bc10-40fb-988a-4b819abef9e2", "f731267b-c6de-4772-bfda-74ee4848dd8b", "Admin2", "admin" });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "ID", "ApiKey", "ApiSecret", "Name", "Role" },
-                values: new object[] { 3, "a1725b15-317c-41dc-aa1b-f45ecc978dc8", "f08428e4-ae76-4234-a040-82bc2ba6fbc1", "User1", "user" });
+                values: new object[] { 3, "62058c84-7f6a-4a07-b2c6-b1b0c2f1961a", "82eaa805-2060-40fe-a0e5-c606733383bc", "User1", "user" });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "ID", "ApiKey", "ApiSecret", "Name", "Role" },
-                values: new object[] { 4, "be96b128-bca1-4309-8772-209b352df761", "6d5a9112-7d54-4afa-96ed-14dcd962d501", "User2", "user" });
+                values: new object[] { 4, "5402738c-04d7-47cd-996d-97f6c392ad74", "c3ce5efc-34a9-47d8-9ef7-db721381d26f", "User2", "user" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Movies_UserID",
