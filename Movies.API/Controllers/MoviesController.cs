@@ -7,14 +7,15 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Movies.Application;
 using Movies.Domain;
+using Movies.Domain.MovieTypes;
 using Movies.Infrastructure;
 
 namespace Movies.API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
     [JWTAuthorize]
     [LoggingFilter]
+    [MoviesExceptionHandler]
     public class MoviesController : ControllerBase
     {
         private readonly IEntityCrudHandler<Movie> handler;
@@ -58,6 +59,7 @@ namespace Movies.API.Controllers
         }
 
         [HttpGet("{id}/Reviews")]
+        [ModelStateHandler]
         public async Task<IActionResult> GetReviews(int id)
         {
             var userID = int.Parse(((JWTPayload)this.HttpContext.Items["JWTPayload"]).uid);
@@ -67,9 +69,11 @@ namespace Movies.API.Controllers
 
         [HttpPost]
         [RestrictAdmin]
-        public async Task<IActionResult> Post(Movie movie)
+        [ModelStateHandler]
+        public async Task<IActionResult> Post([FromBody]MovieCreateCommand command)
         {
             var userID = int.Parse(((JWTPayload)this.HttpContext.Items["JWTPayload"]).uid);
+            var movie = command.ToMovie();
             movie.UserID = userID;
             await handler.Inserir(movie);
             this.HttpContext.Response.StatusCode = 201;
@@ -78,9 +82,11 @@ namespace Movies.API.Controllers
 
         [HttpPut("{id}")]
         [RestrictAdmin]
-        public async Task<IActionResult> Put(int id, Movie movie)
+        [ModelStateHandler]
+        public async Task<IActionResult> Put(int id, [FromBody]MovieAlterCommand command)
         {
             var userID = int.Parse(((JWTPayload)this.HttpContext.Items["JWTPayload"]).uid);
+            var movie = command.ToMovie();
             await handler.Alterar(id, movie, userID);
             this.HttpContext.Response.StatusCode = 200;
             var alteredMovie = await handler.ObterUm(id, userID);

@@ -7,7 +7,6 @@ D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Infrastructure\bin\Debug\netcor
 D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Infrastructure\bin\Debug\netcoreapp3.1\Movies.Domain.dll
 D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Infrastructure\bin\Debug\netcoreapp3.1\JsonWebToken.dll
 D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Infrastructure\bin\Debug\netcoreapp3.1\Movies.Persistency.dll
-D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Infrastructure\obj\Debug\netcoreapp3.1\Movies.Infrastructure.csproj.CoreCompileInputs.cache
 D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Infrastructure\bin\Debug\netcoreapp3.1\Movies.Infrastructure.pdb
 D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Infrastructure\bin\Debug\netcoreapp3.1\JsonWebToken.pdb
 D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Infrastructure\bin\Debug\netcoreapp3.1\Movies.Persistency.pdb
@@ -16,3 +15,4 @@ D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Infrastructure\bin\Debug\netcor
 D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Infrastructure\obj\Debug\netcoreapp3.1\Movies.Infrastructure.csproj.CopyComplete
 D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Infrastructure\obj\Debug\netcoreapp3.1\Movies.Infrastructure.dll
 D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Infrastructure\obj\Debug\netcoreapp3.1\Movies.Infrastructure.pdb
+D:\OneDrive\Estudos\Pi\Repositorio\Movies\Movies.Infrastructure\obj\Debug\netcoreapp3.1\Movies.Infrastructure.csproj.CoreCompileInputs.cache

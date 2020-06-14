@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Movies.Domain;
+using Movies.Domain.ReviewTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,15 +17,44 @@ namespace Movies.Application
 
         public async Task<int> Alterar(int id, Review review, int userID)
         {
-            var toAlter = await db.Reviews.SingleOrDefaultAsync(r => r.ID == id);
-            if (toAlter != null && toAlter.UserID == userID)
+            if (review != null)
             {
+                var toAlter = await db.Reviews.SingleOrDefaultAsync(r => r.ID == id);
+
+                if (toAlter == null)
+                {
+                    await Task.FromException(
+                        new Review_NotFoundException(
+                            $"Rating com id {id} não foi econtrado.",
+                            id, userID
+                        )
+                    );
+                }
+
+                if (toAlter.UserID != userID)
+                {
+                    await Task.FromException(
+                        new Review_InvalidOwnerException(
+                            $"Rating com id {id} não pertence ao usuário {userID}.",
+                            id, userID
+                        )
+                    );
+                }
+
                 toAlter.Title = review.Title ?? toAlter.Title;
                 toAlter.Content = review.Content ?? toAlter.Content;
                 toAlter.LastModifiedOn = DateTime.Now;
-                return await db.SaveChangesAsync();
             }
-            return await Task.FromResult(0);
+            else
+            {
+                await Task.FromException(
+                        new Review_NoContentException(
+                            $"Nenhum campo enviado para alteração.",
+                            id, userID
+                        )
+                    );
+            }
+            return await db.SaveChangesAsync();
         }
 
         public async Task<int> Inserir(Review review)
@@ -42,18 +72,35 @@ namespace Movies.Application
 
         public async Task<Review> ObterUm(int id, int userID)
         {
-            return await db.Reviews.Where(r => r.UserID == userID).SingleOrDefaultAsync(r => r.ID == id);
+            return await db.Reviews.SingleOrDefaultAsync(r => r.ID == id);
         }
 
         public async Task<int> Remover(int id, int userID)
         {
             var toRemove = await db.Reviews.SingleOrDefaultAsync(r => r.ID == id);
-            if (toRemove != null && toRemove.UserID == userID)
+
+            if (toRemove == null)
             {
-                db.Reviews.Remove(toRemove);
-                return await db.SaveChangesAsync();
+                await Task.FromException(
+                    new Review_NotFoundException(
+                        $"Rating com id {id} não foi econtrado.",
+                        id, userID
+                    )
+                );
             }
-            return await Task.FromResult(0);
+
+            if (toRemove.UserID != userID)
+            {
+                await Task.FromException(
+                    new Review_InvalidOwnerException(
+                        $"Rating com id {id} não pertence ao usuário {userID}.",
+                        id, userID
+                    )
+                );
+            }
+
+            db.Reviews.Remove(toRemove);
+            return await db.SaveChangesAsync();
 
         }
     }

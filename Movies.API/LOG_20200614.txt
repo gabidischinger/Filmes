@@ -1,0 +1,3 @@
+2020-06-14 18:56:55.629 -03:00 [INF] User 1 processed (POST) https://localhost:44387/api/Movies to ["action : Post","controller : Movies","UserID : 1","Role : admin"] with Model : {}
+2020-06-14 19:01:25.148 -03:00 [INF] User 1 processed (GET) https://localhost:44387/api/Movies to ["action : Get","controller : Movies","UserID : 1","Role : admin"] with Model : {}
+2020-06-14 19:01:55.251 -03:00 [INF] User 3 processed (POST) https://localhost:44387/api/Ratings to ["action : Post","controller : Ratings","UserID : 3","Role : user"] with Model : {"command":{"MovieID":1,"MovieRating":5,"$type":"RatingCreateCommand"}}

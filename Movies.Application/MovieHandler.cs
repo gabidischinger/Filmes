@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Movies.Domain;
+using Movies.Domain.MovieTypes;
+using Movies.Domain.RatingTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,18 +18,40 @@ namespace Movies.Application
 
         public async Task<int> Alterar(int id, Movie movie, int userID)
         {
-            var toAlter = await db.Movies.SingleOrDefaultAsync(m => m.ID == id);
-            var user = await db.Users.SingleOrDefaultAsync(u => u.ID == userID);
-            if (toAlter != null && user.Role == "admin")
+            if (movie != null)
             {
-                toAlter.Title = movie.Title ?? toAlter.Title;
-                toAlter.Description = movie.Description ?? toAlter.Description;
-                toAlter.Year = movie.Year ?? toAlter.Year;
-                toAlter.Genre = movie.Genre ?? toAlter.Genre;
-                movie.LastModifiedOn = DateTime.Now;
-                return await db.SaveChangesAsync();
+                var toAlter = await db.Movies.SingleOrDefaultAsync(m => m.ID == id);
+                var user = await db.Users.SingleOrDefaultAsync(u => u.ID == userID);
+                if (toAlter == null)
+                {
+                    await Task.FromException(
+                        new Movie_NotFoundException(
+                            $"Movie com id {id} não foi econtrado.",
+                            id, userID
+                        )
+                    );
+                }
+
+                if (toAlter != null && user.Role == "admin")
+                {
+                    toAlter.Title = movie.Title ?? toAlter.Title;
+                    toAlter.Description = movie.Description ?? toAlter.Description;
+                    toAlter.Year = movie.Year ?? toAlter.Year;
+                    toAlter.Genre = movie.Genre ?? toAlter.Genre;
+                    movie.LastModifiedOn = DateTime.Now;
+                }
             }
-            return await Task.FromResult(0);
+            else
+            {
+                await Task.FromException(
+                        new Movie_NoContentException(
+                            $"Nenhum campo enviado para alteração.",
+                            id, userID
+                        )
+                    );
+            }
+
+            return await db.SaveChangesAsync();
 
         }
 

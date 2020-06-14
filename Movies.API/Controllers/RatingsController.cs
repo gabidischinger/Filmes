@@ -7,14 +7,15 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Movies.Application;
 using Movies.Domain;
+using Movies.Domain.RatingTypes;
 using Movies.Infrastructure;
 
 namespace Movies.API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
     [JWTAuthorize]
     [LoggingFilter]
+    [RatingsExceptionHandler]
     public class RatingsController : ControllerBase
     {
         private readonly IEntityCrudHandler<Rating> handler;
@@ -45,9 +46,11 @@ namespace Movies.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(Rating rating)
+        [ModelStateHandler]
+        public async Task<IActionResult> Post([FromBody]RatingCreateCommand command)
         {
             var userID = int.Parse(((JWTPayload)this.HttpContext.Items["JWTPayload"]).uid);
+            var rating = command.ToRating();
             rating.UserID = userID;
             await handler.Inserir(rating);
             this.HttpContext.Response.StatusCode = 201;
@@ -55,10 +58,11 @@ namespace Movies.API.Controllers
         }
 
         [HttpPut("{id}")]
-        [RestrictRating]
-        public async Task<IActionResult> Put(int id, Rating rating)
+        [ModelStateHandler]
+        public async Task<IActionResult> Put(int id, [FromBody]RatingAlterCommand command)
         {
             var userID = int.Parse(((JWTPayload)this.HttpContext.Items["JWTPayload"]).uid);
+            var rating = command.ToRating();
             await handler.Alterar(id, rating, userID);
             this.HttpContext.Response.StatusCode = 200;
             var alteredRating = await handler.ObterUm(id, userID);
@@ -66,7 +70,6 @@ namespace Movies.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        [RestrictRating]
         public async Task<IActionResult> Delete(int id)
         {
             var userID = int.Parse(((JWTPayload)this.HttpContext.Items["JWTPayload"]).uid);
