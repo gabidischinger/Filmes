@@ -11,12 +11,12 @@ namespace Movies.Domain.ReviewTypes
         public int MovieID { get; set; }
 
         [Required(ErrorMessage = "O campo Title é obrigatório.")]
-        [MinLength(10, ErrorMessage = "O campo Title tem tamanho mínimo de 10 caracteres.")]
+        [MinLength(3, ErrorMessage = "O campo Title tem tamanho mínimo de 3 caracteres.")]
         [MaxLength(250, ErrorMessage = "O campo Title tem tamanho máximo de 250 caracteres.")]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "O campo Content é obrigatório.")]
-        [MinLength(10, ErrorMessage = "O campo Content tem tamanho mínimo de 10 caracteres.")]
+        [MinLength(3, ErrorMessage = "O campo Content tem tamanho mínimo de 3 caracteres.")]
         [MaxLength(250, ErrorMessage = "O campo Content tem tamanho máximo de 250 caracteres.")]
         public string Content { get; set; }
 
@@ -25,7 +25,8 @@ namespace Movies.Domain.ReviewTypes
             return new Review
             {
                 Title = Title,
-                Content = Content
+                Content = Content,
+                MovieID = MovieID
             };
         }
     }

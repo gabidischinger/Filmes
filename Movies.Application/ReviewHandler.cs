@@ -25,7 +25,7 @@ namespace Movies.Application
                 {
                     await Task.FromException(
                         new Review_NotFoundException(
-                            $"Rating com id {id} não foi econtrado.",
+                            $"Review com id {id} não foi econtrado.",
                             id, userID
                         )
                     );
@@ -35,7 +35,7 @@ namespace Movies.Application
                 {
                     await Task.FromException(
                         new Review_InvalidOwnerException(
-                            $"Rating com id {id} não pertence ao usuário {userID}.",
+                            $"Review com id {id} não pertence ao usuário {userID}.",
                             id, userID
                         )
                     );
@@ -59,6 +59,16 @@ namespace Movies.Application
 
         public async Task<int> Inserir(Review review)
         {
+            var movie = await db.Movies.SingleOrDefaultAsync(m => m.ID == review.MovieID);
+
+            if (movie == null)
+            {
+                throw new Review_NotFoundException(
+                  $"O filme de ID {review.MovieID} não existe",
+                  review.MovieID, 0
+                  );
+            }
+
             review.AddedOn = DateTime.Now;
             review.LastModifiedOn = DateTime.Now;
             db.Reviews.Add(review);
@@ -83,7 +93,7 @@ namespace Movies.Application
             {
                 await Task.FromException(
                     new Review_NotFoundException(
-                        $"Rating com id {id} não foi econtrado.",
+                        $"Review com id {id} não foi econtrado.",
                         id, userID
                     )
                 );
@@ -93,7 +103,7 @@ namespace Movies.Application
             {
                 await Task.FromException(
                     new Review_InvalidOwnerException(
-                        $"Rating com id {id} não pertence ao usuário {userID}.",
+                        $"Review com id {id} não pertence ao usuário {userID}.",
                         id, userID
                     )
                 );

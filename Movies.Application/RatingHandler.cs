@@ -61,6 +61,16 @@ namespace Movies.Application
 
         public async Task<int> Inserir(Rating rating)
         {
+            var movie = await db.Movies.SingleOrDefaultAsync(m => m.ID == rating.MovieID);
+
+            if (movie == null)
+            {
+                throw new Rating_NotFoundException(
+                  $"O filme de ID {rating.MovieID} não existe",
+                  rating.MovieID, 0
+                  );
+            }
+
             rating.AddedOn = DateTime.Now;
             rating.LastModifiedOn = DateTime.Now;
             db.Ratings.Add(rating);

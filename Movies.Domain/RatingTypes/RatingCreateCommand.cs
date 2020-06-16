@@ -17,7 +17,8 @@ namespace Movies.Domain.RatingTypes
         {
             return new Rating
             {
-                MovieRating = MovieRating
+                MovieRating = MovieRating,
+                MovieID = MovieID
             };
         }
     }

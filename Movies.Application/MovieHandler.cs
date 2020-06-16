@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Movies.Application
 {
-    class MovieHandler : IEntityCrudHandler<Movie>
+    public class MovieHandler : IEntityCrudHandler<Movie>
     {
         private readonly IApplicationDbContext db;
 
